@@ -1,0 +1,53 @@
+=======================
+= advent of code 2026 =
+=======================
+
+solutions to aoc 2026 in C
+
+
+solutions
+---------
+
+each solution for day X can be found in the file `src/days/dayX.c`
+
+
+building & running
+------------------
+
+each puzzle is compiled into its own binary `dayXX`,
+where `XX` is the date of challenge zero padded.
+
+to build the binaries run:
+
+    # or make all
+    $ make 
+
+    # to build a specific binary
+    $ make day00 # builds only day00
+
+
+binaries will be created in `bin/` folder, so to run a solution:
+
+    $ ./bin/day00  # will automatically read 'inputs/00.txt' from cwd
+    # or read a specific file
+    $ ./bin/day00 my-custom-input.txt
+
+
+linting
+-------
+
+the project is linted with clang-format.
+once installed just run:
+
+    $ make lint
+    # or to fix issues
+    $ make lint-fix
+
+additionally license-eye is used to check license headers,
+but it is installed automtically to the bin/ folder, if go
+is installed on the system
+
+tests
+-----
+
+// TODO 
