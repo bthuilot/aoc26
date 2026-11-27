@@ -32,6 +32,15 @@ binaries will be created in `bin/` folder, so to run a solution:
     # or read a specific file
     $ ./bin/day00 my-custom-input.txt
 
+testing
+-------
+
+tests cases are written in `tests/main.c` for each day/part.
+tests can be run using
+
+      $ make run-tests
+      # or to run tests for a specific day
+      $ make run-tests DAY=X
 
 linting
 -------

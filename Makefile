@@ -17,8 +17,10 @@ CSRCS := $(wildcard src/days/day*.c) src/main.c src/aoc.h
 BUILDDIR := $(shell pwd)/build
 LOCALBIN := $(shell pwd)/bin
 
-.PHONY: all clean
+.PHONY: all clean tests run-tests
 .SECONDARY:
+
+##@ building
 
 all: $(DAYS)
 
@@ -43,6 +45,16 @@ $(LOCALBIN):
 clean:
 	rm -rf build bin/day[0-9]*
 
+tests: $(DAYS) $(LOCALBIN)/tests
+
+$(LOCALBIN)/tests: tests/main.c | $(LOCALBIN)
+	$(CC) $(CFLAGS) $< -o $@
+
+
+##@ tests
+
+run-tests: $(LOCALBIN)/tests
+	PATH="$$PATH:$(LOCALBIN)" "$(LOCALBIN)/tests" $(if $(DAY),-d '$(DAY)') 
 
 ## dev tools
 ifeq (,$(shell go env GOBIN))
